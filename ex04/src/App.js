@@ -1,25 +1,33 @@
 
 import './App.css';
-
-import { Component } from "react";
+import React, { Component } from "react";
 
 class App extends Component {
-  initialStorage = {
-    name: "",
-    value: "",
-  }
-  setLocalStorage() {
-    this.setLocalStorage.setItem = ({Arena: 'Selection Month'});
+  initialState = {
+    value: 'Selection Month',
   };
-  getLocalStorage() {
-    this.getLocalStorage.getItem = ({Arena: ""});
-    var myLocalStorageData = 'Selection Month';
-  }
+
+  setLocalStorage = () => {
+    const { value } = this.initialState;
+    localStorage.setItem('Arena',
+      value);
+
+  };
+  getLocalStorage = () => {
+    const myLocalStorageData = 
+    localStorage.getItem('Arena');
+console.log(this.setLocalStorage, this.getLocalStorage);
+  };
+
   render() {
     return (
       <div className="App">
-        <button type="button" onClick={this.setLocalStorage}>setLocalStorage</button>
-      <button type="button" onClick={this.getLocalStorage}>getLocalStorage</button>
+        <button onClick={this.setLocalStorage}>
+          Set Local Storage
+          </button>
+        <button onClick={this.getLocalStorage}>
+          Get Local Storage
+          </button>
       </div>
     );
   }

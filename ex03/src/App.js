@@ -1,21 +1,25 @@
 
 import './App.css';
-
-
-import { Component } from "react";
+import React, { Component } from "react";
 
 class App extends Component {
-  initialStorage = {
-    name: "",
-    value: "",
-  }
-  setLocalStorage() {
-    this.setLocalStorage.setItem = ({Arena: 'Selection Month'});
+  initialState = {
+    value: "Selection Month",
   };
+
+  setLocalStorage = () => {
+    const { value } = this.initialState;
+    localStorage.setItem('Arena',
+      value);
+
+  };
+
   render() {
     return (
       <div className="App">
-        <button type="button" onClick={this.setLocalStorage}>setLocalStorage</button>
+        <button onClick={this.setLocalStorage}>
+          Set Local Storage
+          </button>
       </div>
     );
   }

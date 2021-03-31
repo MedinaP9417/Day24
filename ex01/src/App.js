@@ -20,7 +20,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <button onClick={this.setMyStorage}>set Cookie</button>
+        <button onClick={this.setMyStorage}>Set My Storage</button>
       </div>
     );
   }

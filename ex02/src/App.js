@@ -1,36 +1,41 @@
 
 import './App.css';
-import React, {Component} from 'react';
+import React, { Component } from "react";
+
 class App extends Component {
   initialStorage = {
-    name: "",
-    value: "",
-  }
- setMyStorage = (name, value) => {
-  //  this.setMyStorage({ name: "value" });
-   // Cookie
-   document.cookie = ("Year=2021");
-   // Local Storage
-   localStorage.setItem('Paragon', 'Yes, but Arena first');
-   // Session Storage
-   sessionStorage.setItem('frontend', 'React');
- };
-  // get documentCookieValue();
-  // get localStorageValue();
-  // get sessionStorageValue();
- getMyStorage = (name, value) => {
+    Year: 'Year=2021',
+    Paragon: 'yes, but Arena first',
+    frontend: 'React'
+  };
+  setmyStorage = () => {
+    const { Year, Paragon, frontend } =
+      this.initialState;
+    document.cookie = Year;
+    localStorage.setItem('Paragon',
+     Paragon);
+    // Session Storage
+    sessionStorage.setItem('frontend',
+     frontend);
+  };
+  getMyStorage = () => {
+    const myCookieData = 
+    document.cookie.split('; ').find(row =>
+      row.startsWith('Year=')).split('=')[1];
+      const myLocalStorageData = 
+      localStorage.getItem('Paragon');
+      const mySessionStorageData = 
+      sessionStorage.getItem('frontend');
 
-   var myDocumentCookieData = "Year=2021";
-   var myLocalStorageData = ('Paragon', 'yes, but Arena first');
-   var mySessionStorageData = ('frontend', 'React');
- };
+      // console.log(myCookieData, myLocalStorageData, mySessionStorageData);
+  };
   render() {
     return (
       <div className="App">
-        <button type="button" onClick={this.setMyStorage}>setMyStorage</button>
-      <button type="button" onClick={this.getMyStorage}>getMyStorage</button>
+        <button onClick={this.setMyStorage}>Set My Storage</button>
+        <button onClick={this.getMyStorage}>Get My Storage</button>
       </div>
     );
   }
-} 
+}
 export default App;
