@@ -1,35 +1,26 @@
 
-import './App.css';
-import React, {Component} from 'react';
 
+import './App.css';
+import React, { Component } from "react";
 
 class App extends Component {
   initialStorage = {
-    name: "",
-    value: "",
-  }
-  // state = this.initialState;
-  // handleChange = (event) => {
-  //   const { name, value} = event.target;
-  //   this.setMyStorage({
-  //     [name]: value,
-  //   });
-  // };
-
-
- setMyStorage = (name, value) => {
-  //  this.setMyStorage({ name: "value" });
-   // Cookie
-   document.cookie = "Year=2021";
-   // Local Storage
-   localStorage.setItem('Paragon', 'yes, but Arena first');
+    Year: 'Year=2021',
+    Paragon: 'yes, but Arena first',
+    frontend: 'React'
+  };
+  setmyStorage = () => {
+    const { Year, Paragon, frontend } = 
+    this.initialState;
+    document.cookie = Year;
+   localStorage.setItem('Paragon');
    // Session Storage
-   sessionStorage.setItem('frontend', 'React');
+   sessionStorage.setItem('frontend');
  };
   render() {
     return (
       <div className="App">
-        <button type="button" onClick={this.setMyStorage}>setMyStorage</button>
+        <button onClick={this.setMyStorage}>set Cookie</button>
       </div>
     );
   }
