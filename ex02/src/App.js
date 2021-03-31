@@ -20,16 +20,29 @@ class App extends Component {
  setMyStorage = (name, value) => {
   //  this.setMyStorage({ name: "value" });
    // Cookie
-   document.cookie = "Year=2021";
+   document.cookie = ("Year=2021");
    // Local Storage
-   localStorage.setItem('Paragon', 'yes, but Arena first');
+   localStorage.setItem('Paragon', 'Yes, but Arena first');
    // Session Storage
    sessionStorage.setItem('frontend', 'React');
  };
+
+  // get documentCookieValue();
+  // get localStorageValue();
+  // get sessionStorageValue();
+
+ getMyStorage = (name, value) => {
+
+   var myDocumentCookieData = "Year=2021";
+   var myLocalStorageData = ('Paragon', 'yes, but Arena first');
+   var mySessionStorageData = ('frontend', 'React');
+ };
+ 
   render() {
     return (
       <div className="App">
         <button type="button" onClick={this.setMyStorage}>setMyStorage</button>
+      <button type="button" onClick={this.getMyStorage}>getMyStorage</button>
       </div>
     );
   }
